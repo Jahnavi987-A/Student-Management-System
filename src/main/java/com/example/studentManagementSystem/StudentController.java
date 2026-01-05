@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 // import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import java.util.*;
+// import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -19,7 +22,7 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @PostMapping("/student")
+    @PostMapping("/students")
     public void addStudent(@RequestBody Student student){
         studentService.addStudent(student);
     }
@@ -35,5 +38,13 @@ public class StudentController {
     public Student updateDetails(@PathVariable int id,@RequestBody Student student){
         return studentService.updateStudent(id,student);
     }
-
+    @PutMapping("/allupdate/{id}")
+    public Student updateAllDetails(@PathVariable int id,@RequestBody Student student){
+        return studentService.updateAllDetails(id,student);
+    }
+    @GetMapping("/students/{id}")
+    public Student getStudentById(@PathVariable int id) {
+        return studentService.getStudentById(id).orElseThrow(()-> new RuntimeException("Student not found"));
+    }
+    
 }

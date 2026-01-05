@@ -37,4 +37,12 @@ public class StudentService {
         return studentRepository.save(existingStudent);
          
     }
+    public Student updateAllDetails(int id,Student student){
+        Student existingStudent = studentRepository.findById(id).orElseThrow(()->new RuntimeException("Student not found"));
+        existingStudent.setStudentName(student.getStudentName());
+        existingStudent.setStudentBranch(student.getStudentBranch());
+        existingStudent.setStudentPlace(student.getStudentPlace());
+
+        return studentRepository.save(existingStudent);
+    }
 }
