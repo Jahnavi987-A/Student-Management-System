@@ -53,7 +53,7 @@ studentManagementSystem
 
 ### ➤ Get All Students
 
-* **GET** `/students`
+* **GET** `/allstudents`
 
 ### ➤ Get Student by ID
 
@@ -61,15 +61,15 @@ studentManagementSystem
 
 ### ➤ Update Student (Full Update)
 
-* **PUT** `/students/{id}`
+* **PUT** `/allupdate/{id}`
 
 ### ➤ Update Student (Partial Update)
 
-* **PATCH** `/students/{id}`
+* **PATCH** `/update/{id}`
 
 ### ➤ Delete Student
 
-* **DELETE** `/students/{id}`
+* **DELETE** `/delete/{id}`
 
 ---
 
